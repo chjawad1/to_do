@@ -74,8 +74,8 @@ class TaskCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               border: Border.all(
                 color: task.isOverdue
-                    ? const Color(0xFFF44336).withOpacity(0.4)
-                    : colorScheme.outline.withOpacity(0.1),
+                    ? const Color(0xFFF44336).withValues(alpha: 0.4)
+                    : colorScheme.outline.withValues(alpha: 0.1),
                 width: task.isOverdue ? 1.5 : 1,
               ),
             ),
@@ -90,7 +90,7 @@ class TaskCard extends StatelessWidget {
                     height: 48,
                     decoration: BoxDecoration(
                       color:
-                          task.isCompleted ? colorScheme.outline.withOpacity(0.3) : priorityColor,
+                          task.isCompleted ? colorScheme.outline.withValues(alpha: 0.3) : priorityColor,
                       borderRadius: BorderRadius.circular(4),
                     ),
                   ),
@@ -108,7 +108,7 @@ class TaskCard extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: task.isCompleted
-                            ? priorityColor.withOpacity(0.2)
+                            ? priorityColor.withValues(alpha: 0.2)
                             : Colors.transparent,
                         border: Border.all(
                           color: task.isCompleted
@@ -139,7 +139,7 @@ class TaskCard extends StatelessWidget {
                                         ? TextDecoration.lineThrough
                                         : null,
                                     color: task.isCompleted
-                                        ? colorScheme.onSurface.withOpacity(0.4)
+                                        ? colorScheme.onSurface.withValues(alpha: 0.4)
                                         : colorScheme.onSurface,
                                   ),
                           maxLines: 2,
@@ -153,7 +153,7 @@ class TaskCard extends StatelessWidget {
                             style:
                                 Theme.of(context).textTheme.bodySmall?.copyWith(
                                       color: colorScheme.onSurface
-                                          .withOpacity(0.5),
+                                          .withValues(alpha: 0.5),
                                     ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
@@ -173,10 +173,10 @@ class TaskCard extends StatelessWidget {
                               _Tag(
                                 label: _formatDue(task),
                                 color: task.isOverdue
-                                    ? const Color(0xFFF44336).withOpacity(0.15)
+                                    ? const Color(0xFFF44336).withValues(alpha: 0.15)
                                     : task.isDueToday
-                                        ? const Color(0xFFFFC107).withOpacity(0.2)
-                                        : colorScheme.surfaceVariant,
+                                        ? const Color(0xFFFFC107).withValues(alpha: 0.2)
+                                        : colorScheme.surfaceContainerHighest,
                                 textColor: task.isOverdue
                                     ? const Color(0xFFF44336)
                                     : task.isDueToday

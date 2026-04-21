@@ -40,7 +40,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
                 )
               : null,
           filled: true,
-          fillColor: colorScheme.surfaceVariant.withOpacity(0.4),
+          fillColor: colorScheme.surfaceContainerHighest.withValues(alpha: 0.4),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(14),
             borderSide: BorderSide.none,

@@ -21,13 +21,16 @@ class TaskProvider extends ChangeNotifier {
   List<Task> get _filteredTasks {
     return _tasks.where((task) {
       if (!_showCompleted && task.isCompleted) return false;
-      if (_selectedCategory != null && task.category != _selectedCategory)
+      if (_selectedCategory != null && task.category != _selectedCategory) {
         return false;
-      if (_selectedPriority != null && task.priority != _selectedPriority)
+      }
+      if (_selectedPriority != null && task.priority != _selectedPriority) {
         return false;
+      }
       if (_searchQuery.isNotEmpty &&
-          !task.title.toLowerCase().contains(_searchQuery.toLowerCase()))
+          !task.title.toLowerCase().contains(_searchQuery.toLowerCase())) {
         return false;
+      }
       return true;
     }).toList()
       ..sort((a, b) {

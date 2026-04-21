@@ -31,12 +31,12 @@ class ThemeProvider extends ChangeNotifier {
           brightness: Brightness.light,
         ),
         fontFamily: 'Roboto',
-        cardTheme: CardTheme(
+        cardTheme: const CardThemeData(
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.all(Radius.circular(16)),
           ),
-          color: const Color(0xFFF8F7FF),
+          color: Color(0xFFF8F7FF),
         ),
         appBarTheme: const AppBarTheme(
           centerTitle: false,
@@ -56,12 +56,12 @@ class ThemeProvider extends ChangeNotifier {
           brightness: Brightness.dark,
         ),
         fontFamily: 'Roboto',
-        cardTheme: CardTheme(
+        cardTheme: const CardThemeData(
           elevation: 0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.all(Radius.circular(16)),
           ),
-          color: const Color(0xFF1E1B2E),
+          color: Color(0xFF1E1B2E),
         ),
         appBarTheme: const AppBarTheme(
           centerTitle: false,

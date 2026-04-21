@@ -23,7 +23,7 @@ class StatsBanner extends StatelessWidget {
           gradient: LinearGradient(
             colors: [
               colorScheme.primary,
-              colorScheme.primary.withOpacity(0.7),
+              colorScheme.primary.withValues(alpha: 0.7),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -114,7 +114,7 @@ class _StatItem extends StatelessWidget {
         Icon(icon,
             color: isWarning
                 ? const Color(0xFFFFEB3B)
-                : Colors.white.withOpacity(0.8),
+                : Colors.white.withValues(alpha: 0.8),
             size: 20),
         const SizedBox(height: 4),
         Text(value,
@@ -125,7 +125,7 @@ class _StatItem extends StatelessWidget {
             )),
         Text(label,
             style: TextStyle(
-              color: Colors.white.withOpacity(0.7),
+              color: Colors.white.withValues(alpha: 0.7),
               fontSize: 11,
               fontWeight: FontWeight.w500,
             )),

@@ -52,7 +52,6 @@ class _AddEditTaskScreenState extends State<AddEditTaskScreen> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final isKeyboardOpen = MediaQuery.of(context).viewInsets.bottom > 0;
 
     return Scaffold(
       appBar: AppBar(
@@ -109,7 +108,7 @@ class _AddEditTaskScreenState extends State<AddEditTaskScreen> {
             const SizedBox(height: 24),
 
             // Priority
-            _SectionLabel(label: 'Priority', icon: Icons.flag_rounded),
+            const _SectionLabel(label: 'Priority', icon: Icons.flag_rounded),
             const SizedBox(height: 10),
             Row(
               children: Priority.values
@@ -128,7 +127,7 @@ class _AddEditTaskScreenState extends State<AddEditTaskScreen> {
             const SizedBox(height: 24),
 
             // Category
-            _SectionLabel(label: 'Category', icon: Icons.category_rounded),
+            const _SectionLabel(label: 'Category', icon: Icons.category_rounded),
             const SizedBox(height: 10),
             Wrap(
               spacing: 8,
@@ -144,7 +143,7 @@ class _AddEditTaskScreenState extends State<AddEditTaskScreen> {
             const SizedBox(height: 24),
 
             // Due Date
-            _SectionLabel(label: 'Due Date & Time', icon: Icons.calendar_today_rounded),
+            const _SectionLabel(label: 'Due Date & Time', icon: Icons.calendar_today_rounded),
             const SizedBox(height: 10),
             Row(
               children: [
@@ -198,7 +197,7 @@ class _AddEditTaskScreenState extends State<AddEditTaskScreen> {
                         : 'No reminder set',
                     style: TextStyle(
                         fontSize: 12,
-                        color: colorScheme.onSurface.withOpacity(0.5)),
+                        color: colorScheme.onSurface.withValues(alpha: 0.5)),
                   ),
                   value: _hasReminder,
                   onChanged: (val) => setState(() => _hasReminder = val),
@@ -323,9 +322,9 @@ class _PriorityChip extends StatelessWidget {
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
-          color: isSelected ? color.withOpacity(0.15) : Colors.transparent,
+          color: isSelected ? color.withValues(alpha: 0.15) : Colors.transparent,
           border: Border.all(
-            color: isSelected ? color : Theme.of(context).colorScheme.outline.withOpacity(0.4),
+            color: isSelected ? color : Theme.of(context).colorScheme.outline.withValues(alpha: 0.4),
             width: isSelected ? 2 : 1,
           ),
           borderRadius: BorderRadius.circular(12),
@@ -339,7 +338,7 @@ class _PriorityChip extends StatelessWidget {
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: isSelected ? FontWeight.w700 : FontWeight.w400,
-                color: isSelected ? color : Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
+                color: isSelected ? color : Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
               ),
             ),
           ],
@@ -398,12 +397,12 @@ class _PickerCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
         decoration: BoxDecoration(
           color: hasValue
-              ? colorScheme.primaryContainer.withOpacity(0.5)
-              : colorScheme.surfaceVariant.withOpacity(0.3),
+              ? colorScheme.primaryContainer.withValues(alpha: 0.5)
+              : colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
           border: Border.all(
             color: hasValue
-                ? colorScheme.primary.withOpacity(0.5)
-                : colorScheme.outline.withOpacity(isDisabled ? 0.2 : 0.4),
+                ? colorScheme.primary.withValues(alpha: 0.5)
+                : colorScheme.outline.withValues(alpha: isDisabled ? 0.2 : 0.4),
           ),
           borderRadius: BorderRadius.circular(12),
         ),
@@ -414,7 +413,7 @@ class _PickerCard extends StatelessWidget {
                 color: hasValue
                     ? colorScheme.primary
                     : colorScheme.onSurface
-                        .withOpacity(isDisabled ? 0.3 : 0.5)),
+                        .withValues(alpha: isDisabled ? 0.3 : 0.5)),
             const SizedBox(width: 8),
             Expanded(
               child: Text(
@@ -425,7 +424,7 @@ class _PickerCard extends StatelessWidget {
                   color: hasValue
                       ? colorScheme.primary
                       : colorScheme.onSurface
-                          .withOpacity(isDisabled ? 0.3 : 0.6),
+                          .withValues(alpha: isDisabled ? 0.3 : 0.6),
                 ),
                 overflow: TextOverflow.ellipsis,
               ),

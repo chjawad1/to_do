@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/task_provider.dart';
 import '../providers/theme_provider.dart';
-import '../models/task.dart';
 import '../widgets/task_card.dart';
 import '../widgets/stats_banner.dart';
 import '../widgets/filter_chips.dart';
@@ -89,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen>
               Text(
                 _getGreeting(),
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: colorScheme.onSurface.withOpacity(0.5),
+                      color: colorScheme.onSurface.withValues(alpha: 0.5),
                     ),
               ),
             ],
@@ -141,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen>
         controller: _tabController,
         indicatorColor: colorScheme.primary,
         labelColor: colorScheme.primary,
-        unselectedLabelColor: colorScheme.onSurface.withOpacity(0.5),
+        unselectedLabelColor: colorScheme.onSurface.withValues(alpha: 0.5),
         tabs: const [
           Tab(text: 'Pending'),
           Tab(text: 'Completed'),
@@ -153,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen>
   Widget _buildTaskList(BuildContext context) {
     return TabBarView(
       controller: _tabController,
-      children: [
+      children: const [
         _TaskListView(showCompleted: false),
         _TaskListView(showCompleted: true),
       ],
@@ -230,13 +229,13 @@ class _EmptyState extends StatelessWidget {
                 ? Icons.check_circle_outline_rounded
                 : Icons.task_alt_rounded,
             size: 72,
-            color: colorScheme.primary.withOpacity(0.3),
+            color: colorScheme.primary.withValues(alpha: 0.3),
           ),
           const SizedBox(height: 16),
           Text(
             showCompleted ? 'No completed tasks' : 'No pending tasks!',
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: colorScheme.onSurface.withOpacity(0.5),
+                  color: colorScheme.onSurface.withValues(alpha: 0.5),
                   fontWeight: FontWeight.w600,
                 ),
           ),
@@ -246,7 +245,7 @@ class _EmptyState extends StatelessWidget {
                 ? 'Complete a task to see it here'
                 : 'Tap + to add your first task',
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: colorScheme.onSurface.withOpacity(0.35),
+                  color: colorScheme.onSurface.withValues(alpha: 0.35),
                 ),
           ),
         ],
